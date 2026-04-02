@@ -15,6 +15,10 @@ import { useData } from 'vitepress'
 const { theme, page, frontmatter } = useData()
 </script>
 
+## Video
+
+<lite-youtube videoid="zx7LD73pZGw"></lite-youtube>
+
 ## Results
 
 ### Theme Data
@@ -32,6 +36,10 @@ import { useData } from 'vitepress'
 
 const { site, theme, page, frontmatter } = useData()
 </script>
+
+## Video
+
+<lite-youtube videoid="zx7LD73pZGw"></lite-youtube>
 
 ## Results
 

@@ -4,10 +4,16 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@lit-app/cmp': link:../../accessibleData/lit-app/cmp
+
 importers:
 
   .:
     dependencies:
+      '@lit-app/cmp':
+        specifier: link:../../accessibleData/lit-app/cmp
+        version: link:../../accessibleData/lit-app/cmp
       lit:
         specifier: ^3.3.2
         version: 3.3.2

@@ -13,6 +13,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.28.1",
   "dependencies": {
+    "@lit-app/cmp": "link:../../accessibleData/lit-app/cmp",
     "lit": "^3.3.2",
     "lite-youtube-embed": "^0.3.4",
     "vitepress": "2.0.0-alpha.17"

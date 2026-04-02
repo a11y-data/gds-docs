@@ -1,0 +1,2 @@
+overrides:
+  '@lit-app/cmp': link:../../accessibleData/lit-app/cmp

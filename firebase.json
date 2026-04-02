@@ -1,0 +1,8 @@
+{
+  "hosting": {
+    "site": "gds-docs",
+    "public": ".vitepress/dist",
+    "cleanUrls": true,
+    "ignore": []
+  }
+}

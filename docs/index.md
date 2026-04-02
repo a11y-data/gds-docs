@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "GDS App Documentation"
-  text: "Documentation for GDS Application"
-  tagline: My great project tagline
+  name: "GDS Portal"
+  text: "Documentation"
+  tagline: Helping you use the GDS Portal effectively
   actions:
     - theme: brand
       text: Markdown Examples

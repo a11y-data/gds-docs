@@ -1,0 +1,49 @@
+:root {
+  --a11y-color-primary: #1226AA;
+  --a11y-color-secondary: #01BAA3;
+  --a11y-color-tertiary: #bc004b;
+
+  /* --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+      var(--a11y-color-primary) 30%,
+      var(--a11y-color-secondary));
+  --vp-home-hero-image-background-image: linear-gradient(-45deg,
+      var(--a11y-color-primary) 50%,
+      var(--a11y-color-secondary) 50%); */
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+
+/* used in reference/default-theme-search */
+img[src='/search.png'] {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+/* figure and figcaption styling */
+figure {
+  margin: 1.5rem 0;
+  padding: 1rem 3rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background-color: var(--vp-c-bg-soft);
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  font-style: italic;
+}
