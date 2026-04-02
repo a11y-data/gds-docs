@@ -13,7 +13,7 @@ export default defineConfig({
   use: {
     viewport: { width: 1600, height: 1080 },
     actionTimeout: 0,
-    baseURL: 'http://localhost:7174',
+    baseURL: 'http://localhost:7173',
     trace: 'on-first-retry',
   },
   projects: [

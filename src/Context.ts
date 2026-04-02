@@ -100,71 +100,31 @@ export class Context implements ContextT {
     })
   }
 
+  async screenshot() {
+    // const name = this.name
 
-
-  async screenshot(advanced?: boolean) {
-    const name = this.name
-    const advancedModeSwitch = (await this.page.getByRole('switch', { name: 'toggle advanced mode' }).isVisible())
-      ? this.page.getByRole('switch', { name: 'toggle advanced mode' })
-      : undefined
-    const isAdvancedMode = await advancedModeSwitch?.isChecked() || false
     let pageIsLargerThanViewport = await this.page.evaluate(() => {
       return document.body.scrollHeight > window.innerHeight || document.body.scrollWidth > window.innerWidth
     })
     // await this.page.waitForTimeout(50);
-    await advancedModeSwitch?.uncheck()
-    await this.page.waitForTimeout(50)
 
     await Promise.all(
 
       [this.page.screenshot({
-        path: `${this.path}/assets/${name}-auto.png`,
+        path: `${this.path}/assets/${this.name ? this.name + '/' : ''}auto.png`,
       }),
       pageIsLargerThanViewport &&
       this.page.screenshot({
-        path: `${this.path}/assets/${name}-full-auto.png`,
+        path: `${this.path}/assets/${this.name ? this.name + '/' : ''}full-auto.png`,
         fullPage: true,
       }),
       this.area.map(a => this.page.screenshot({
-        path: `${this.path}/assets/${name}-${a.name}-auto.png`,
+        path: `${this.path}/assets/${this.name ? this.name + '/' : ''}${a.name}-auto.png`,
         clip: a.clip,
       }))
       ]
     )
 
-    if (advanced) {
-      // click advanced
-      await advancedModeSwitch?.check()
-      await this.page.waitForTimeout(50)
-      pageIsLargerThanViewport = await this.page.evaluate(() => {
-        return document.body.scrollHeight > window.innerHeight || document.body.scrollWidth > window.innerWidth
-      })
-      await Promise.all(
-
-        [this.page.screenshot({
-          path: `${this.path}/assets/${name}-advanced-auto.png`,
-        }),
-        pageIsLargerThanViewport &&
-        this.page.screenshot({
-          path: `${this.path}/assets/${name}-advanced-full-auto.png`,
-          fullPage: true,
-        }),
-        this.area
-          .filter(a => a.advanced === true)
-          .map(a => this.page.screenshot({
-            path: `${this.path}/assets/${name}-${a.name}-advanced-auto.png`,
-            clip: a.clip,
-          }))
-        ]
-      )
-
-    }
-    if (isAdvancedMode) {
-      await advancedModeSwitch?.check()
-    } else {
-      await advancedModeSwitch?.uncheck()
-
-    }
     await this.page.waitForTimeout(50)
     return this
   }
