@@ -1,5 +1,6 @@
 import { test } from '@playwright/test'
 import { Context } from '../Context.ts'
+import { pushState } from '../utils/historyState.ts'
 
 const port = process.env.PLAYWRIGHT_PORT || '7173'
 const root = `http://localhost:${port}`
@@ -18,15 +19,11 @@ test.describe('GDS Space Navigation and Screenshots', () => {
     // We initialize the context with the base path for GDS reference documentation
     const context = new Context(pathRoot, page)
     await page.setViewportSize({ width: 1600, height: 1080 })
-
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
+    await page.getByRole('link', { name: 'My Space' }).click()
+    await page.waitForTimeout(1000)
     console.info(`Starting GDS navigation on ${root}`)
-
-    // Navigate to the entry point of My Space
-    // This will likely redirect to /space/:organisationId/ok/welcome if authenticated
-    await page.goto(`${root}/space/ok/welcome`)
-
-    // Wait for the app to initialize and any redirects to settle and sign-in
-    await page.waitForTimeout(3000)
 
     // List of routes from app/app-gds/src/page/space/ok.ts
     // These are the main sections of the GDS Portal (My Space)
@@ -43,12 +40,9 @@ test.describe('GDS Space Navigation and Screenshots', () => {
     for (const route of routes) {
       console.info(`Capturing route: ${route.name}`)
 
-
-      const currentUrl = page.url()
-      await page.goto(`${currentUrl}/${route.path}`)
-
-
-      await page.waitForTimeout(1000) // Wait for content to load
+      // Navigate using pushState to avoid full page reload
+      await pushState(page, route.path)
+      await page.waitForTimeout(1200) // Wait for content to load
 
       // Update context path and name for the current route
       // context.resetPath(pathRoot)
