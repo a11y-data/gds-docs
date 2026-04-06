@@ -147,8 +147,6 @@ test.describe('How-To', async () => {
     locator = await page.getByRole('button', { name: 'Add Access' })
     await context.annotatedScreenshot(locator, 'step-2-click-add-access')
 
-
-
   })
 
   test('create a commitment', async ({ page }) => {
@@ -157,14 +155,110 @@ test.describe('How-To', async () => {
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
+
+    // Step 1: Click on "My Space" in the header and then on "Commitment" in the left menu
+    await page.getByRole('link', { name: 'My Space' }).click()
+    locator = await page.getByRole('link', { name: 'Commit New Pledges' })
+    await context.annotatedScreenshot(locator, 'step-1-click-commit-new-pledges')
+    await locator.click()
+    locator = await page.getByRole('button', { name: 'Create New Commitment' })
+    await context.annotatedScreenshot(locator, 'step-1-click-create-new-commitment')
+    await locator.click()
+
+
+    // Step 2: Fill the commitment form and click on "Submit for review" button
+    // fill- in all the required fields (marked with a red asterisk) :
+    locator = await page.getByRole('textbox', { name: 'Title of Commitment' })
+    await context.annotatedScreenshot(locator, 'step-2-fill-commitment-form-title')
+    await locator.fill('My Second New Commitment')
+    locator = await page.locator('textarea')
+    await context.annotatedScreenshot(locator, 'step-2-fill-commitment-form-text')
+    await locator.fill('This is the commitment body ...')
+
+    locator = await page.getByRole('combobox', { name: 'Implementation Scope' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-2-fill-commitment-form-implementation-scope')
+    await locator.click()
+    await page.locator('md-select-option:nth-child(2) > #item > md-item').first().click()
+    await locator.click()
+
+
+    locator = await page.getByRole('combobox', { name: 'Implementation Scope' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-2-select-implementation-scope')
+    await locator.click()
+    await page.getByRole('combobox', { name: 'Implementation Scope' }).locator('#label').click()
+    await page.getByText('Regional').click()
+    // await page.getByText('Regional').first().click()
+
+    locator = await page.getByRole('combobox', { name: 'Select a Continent' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-2-select-continent')
+    await locator.click()
+    await page.getByText('Africa').first().click()
+
+
+    locator = await page.getByRole('combobox', { name: 'Topic' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-2-select-topic')
+    await locator.click()
+    await page.getByText('Health equity').click()
+
+
+    locator = await page.getByRole('combobox', { name: 'Timeframe' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-2-select-timeframe')
+    await locator.click()
+    await page.getByText('1 year').click()
+
+
+    locator = await page.locator('lapp-choice-list-item').filter({ hasText: 'Accessibility' }).locator('#input')
+    await context.annotatedScreenshot(locator, 'step-3-select-accessibility')
+    await locator.check()
+
+    // Step 3: Click on "Submit for review" button and see the commitment appear in the "My Space" page with a "In Review" status
+    locator = await page.getByRole('button', { name: 'Create new Commitment' })
+    await context.annotatedScreenshot(locator, 'step-3-click-submit-for-review')
+    // await locator.click() - do not click to avoid creating a new commitment at each test run
+
   })
 
-  test('submit a commitment - coming soon', async ({ page }) => {
+  test('submit a commitment', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
     context.setName('submit-commitment')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
+    await page.getByRole('link', { name: 'My Space' }).click()
+
+    // Step 1: access the commitment you want to submit in the "My Space" page and click on "Submit Commitment" button
+    await page.getByText('Commitments', { exact: true }).click()
+
+    locator = await page.getByText('My Second New Commitment')
+    await context.annotatedScreenshot(locator, 'step-1-click-commitment')
+    await locator.click()
+
+    locator = await page.getByRole('button', { name: 'Open' })
+    await context.annotatedScreenshot(locator, 'step-1-click-open')
+    await locator.click()
+
+    // Step 2: Turn to `edit mode`. 
+    locator = await page.getByRole('button', { name: 'Edit' })
+    await context.annotatedScreenshot(locator, 'step-2-click-edit')
+    await locator.click()
+
+
+    // Step 3: Review the commitment details and make sure all required fields are filled in and Save the changes
+
+    locator = await page.getByRole('combobox', { name: 'Number of people with' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-3-select-number-of-people-with')
+    await locator.click()
+    await page.getByText('100-').click()
+
+    locator = await page.getByRole('button', { name: 'Save' })
+    await context.annotatedScreenshot(locator, 'step-3-click-save')
+    await locator.click()
+
+    // Step 3: Click on "Submit" button - this will trigger an email notification to the admin of the app to review and validate the commitment before being published on the platform
+    locator = await page.getByRole('button', { name: 'Submit' })
+    await context.annotatedScreenshot(locator, 'step-3-click-submit')
+    // await locator.click();
+
   })
 
   test('start the reporting process', async ({ page }) => {
