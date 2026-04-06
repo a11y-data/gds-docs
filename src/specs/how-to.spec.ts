@@ -8,8 +8,12 @@ const db = initializeFirebaseApp().db
 
 let locator: Locator
 
-let userId = ''
-let organisationId = ''
+let newUserId = ''
+let newOrganisationId = ''
+
+const userId = 'BNYfpV0mtwguJTKpRam96u9afGL2'
+let organisationId = 'lpiBx3ziCWdZ4takUtY2FykrhII2'
+const reportingId = 'w4073LVqjSbHsI9Uhf2k'
 
 const port = process.env.PLAYWRIGHT_PORT || '7173'
 const root = `http://localhost:${port}`
@@ -72,13 +76,13 @@ test.describe('How-To', async () => {
     // Step 4: Verify your email address : go to your email inbox and click on the verification link 
     await getAuth().getUserByEmail(newUserEmail)
       .then((userRecord) => {
-        userId = userRecord.uid
-        console.info('User ID:', userId)
-        return getAuth().updateUser(userId, {
+        newUserId = userRecord.uid
+        console.info('User ID:', newUserId)
+        return getAuth().updateUser(newUserId, {
           emailVerified: true,
         })
           .then(() => {
-            console.log('User ID:', userId)
+            console.log('User ID:', newUserId)
           })
       })
     // Step 5: Agree to terms and conditions
@@ -97,17 +101,17 @@ test.describe('How-To', async () => {
     const regex = /space\/([^\/]+)\/ok/
     const match = url.match(regex)
     if (match && match[1]) {
-      organisationId = match[1]
-      console.log('Organisation ID:', organisationId)
+      newOrganisationId = match[1]
+      console.log('Organisation ID:', newOrganisationId)
     }
 
     // delete the user and the organisation created during the test to avoid polluting the database
-    if (userId) {
-      await getAuth().deleteUser(userId)
-      await db.collection('user').doc(userId).delete()
+    if (newUserId) {
+      await getAuth().deleteUser(newUserId)
+      await db.collection('user').doc(newUserId).delete()
     }
-    if (organisationId) {
-      await db.collection('app/gds/organisations').doc(organisationId).delete()
+    if (newOrganisationId) {
+      await db.collection('app/gds/organisations').doc(newOrganisationId).delete()
     }
 
   })
@@ -263,10 +267,46 @@ test.describe('How-To', async () => {
 
   test('start the reporting process', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
-    context.setName('start-reporting-process')
+    context.setName('start-reporting')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
+
+    // Step 1: Click on "My Space" in the header and then on "Reporting" in the left menu
+    await page.getByRole('link', { name: 'My Space' }).click()
+    await page.getByTestId('page-drawer-menu').getByText('Reporting').click()
+
+    // Step 2: Click on "Start Reporting" button on the top right of the page. 
+    // this will trigger the creation of a new report linked to the commitment and the start of the reporting process. You will be able to see the new report in the "Reporting" page with a "In Progress" status.
+
+    locator = await page.getByRole('button', { name: 'Start Reporting' })
+    await context.annotatedScreenshot(locator, 'step-2-click-start-reporting')
+    await locator.click()
+
+    await page.waitForTimeout(5000)
+
+    locator = await page.locator('gds-space-report div').filter({ hasText: 'Welcome to the Global' })
+    // screenshot the welcome message that appears when the report is created and the reporting process starts
+    // active reports are displayed in the reporting page, with their status
+    await context.annotatedScreenshot(locator, 'step-2-new-report')
+
+  })
+
+  test('report a progress update', async ({ page }) => {
+    const context = new Context(`${howToRoot}`, page)
+    context.setName('report-progress-update')
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
+
+    // Step 1: Click on "My Space" in the header and then on "Reporting" in the left menu
+
+    // Step 2: Click on the report linked to the commitment you want to update
+
+    // Step 3: Click on "Add Progress Update" button and fill the form with the progress update details (text, images, videos, etc.)
+
+    // Step 4: Click on "Submit Update" button and see the new progress update appear in the report page with a "In Review" status (waiting for admin validation before being published on the platform)
+
   })
 
   test('submit a report', async ({ page }) => {
@@ -275,7 +315,39 @@ test.describe('How-To', async () => {
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
+
+    // Step 1: Click on "My Space" in the header and then on "Reporting" in the left menu
+
+    // Step 2: Open the report linked to the commitment you want to submit
+
+
+    // step 3: Click on "Edit Report" button and review the report details and make sure all required fields are filled in and Save the changes
+
+    // Step 4: Review the report content and make sure all required fields are filled in and Save the changes
+
+    // Step 5: Click on "Submit Report" button - this will trigger an email notification to the admin of the app to review and validate the report before being published on the platform
+
+    // Not for documentation purposes, delete all reports
+    await clearReporting(organisationId, reportingId)
   })
 
 
 })
+
+async function clearReporting(organisationId: string, reportingId: string) {
+  const reportPath = `app/gds/report`
+  const reporting = await db.collection(reportPath)
+    .where('ref.organisation', '==', organisationId)
+    .where('ref.reporting', '==', reportingId)
+    .get()
+  const actors = await db.collection('actor')
+    .where('snapshot.context.organisation', '==', organisationId)
+    .where('snapshot.context.reporting', '==', reportingId)
+    .where('ref.machineId', '==', 'reporting')
+    .get()
+
+  return Promise.all([
+    ...reporting.docs.map((doc) => doc.ref.delete()),
+    ...actors.docs.map((doc) => doc.ref.delete())
+  ])
+}
