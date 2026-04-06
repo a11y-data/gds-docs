@@ -72,7 +72,6 @@ test.describe('How-To', async () => {
     await context.annotatedScreenshot(locator, 'step-3-set-new-organisation-details-next')
     await locator.click()
 
-
     // Step 4: Verify your email address : go to your email inbox and click on the verification link 
     await getAuth().getUserByEmail(newUserEmail)
       .then((userRecord) => {
@@ -348,9 +347,6 @@ test.describe('How-To', async () => {
     // Not for documentation purposes, delete all reports
     await clearReporting(organisationId, reportingId)
   })
-
-
-
 
 })
 

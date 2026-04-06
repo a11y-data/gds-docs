@@ -40,7 +40,7 @@ The New Commitment page provides the interface for submitting new pledges to the
 
 The Reporting page is used to report on the progress of your organization past commitments. Reporting is only available during active reporting periods.
 
-[See the Reporting page reference documentation](./reporting.md) for more details on the features and interactions available on this page.
+[See the Reporting page reference documentation](./report.md) for more details on the features and interactions available on this page.
 
 ## Messages
 
@@ -48,7 +48,7 @@ The Reporting page is used to report on the progress of your organization past c
 
 The Messages section enables direct communication with the Global Disability Summit (GDS) secretariat for support and clarification.
 
-[See the Messages page reference documentation](./messages.md) for more details on the features and interactions available on this page.
+[See the Messages page reference documentation](./communication.md) for more details on the features and interactions available on this page.
 
 ## Organisation
 

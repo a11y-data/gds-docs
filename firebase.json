@@ -1,8 +1,12 @@
 {
   "hosting": {
-    "site": "gds-docs",
+    "site": "gds-docs-2a8b5",
     "public": ".vitepress/dist",
     "cleanUrls": true,
-    "ignore": []
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }
