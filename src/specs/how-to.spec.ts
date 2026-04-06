@@ -17,7 +17,8 @@ const howToRoot = 'docs/how-to'
 const newUserEmail = 'playwright-create-account@preignition.org'
 test.describe('How-To', async () => {
   test('Create an account', async ({ page }) => {
-    const context = new Context(`${howToRoot}/create-account`, page)
+    const context = new Context(`${howToRoot}`, page)
+    context.setName('create-account')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
@@ -113,6 +114,7 @@ test.describe('How-To', async () => {
 
   test('Add a member to your organisation', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
+    context.setName('add-member')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
@@ -120,6 +122,7 @@ test.describe('How-To', async () => {
 
   test('create a commitment', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
+    context.setName('create-commitment')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
@@ -127,6 +130,7 @@ test.describe('How-To', async () => {
 
   test('submit a commitment', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
+    context.setName('submit-commitment')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
@@ -134,6 +138,7 @@ test.describe('How-To', async () => {
 
   test('start the reporting process', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
+    context.setName('start-reporting-process')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
@@ -141,6 +146,7 @@ test.describe('How-To', async () => {
 
   test('submit a report', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
+    context.setName('submit-report')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
