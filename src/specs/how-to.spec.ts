@@ -1,41 +1,149 @@
-import { Locator, test } from '@playwright/test'
+import { type Locator, test } from '@playwright/test'
+import { getAuth } from "firebase-admin/auth"
+import { Context } from '../Context.ts'
+import { pushState } from '../utils/historyState.ts'
 import { initializeFirebaseApp } from '../utils/initialize'
 const db = initializeFirebaseApp().db
 
-const port = '7173'
-const a11yPort = '7174'
-const baseUrl = `http://localhost:${port}` // playwright team
-const a11yBaseUrl = `http://localhost:${a11yPort}` // accessible data team
-const satisfactionSurveyId = '3BBFzJneqakYoyDu02c2'
-const testSurveyId = 'ufPnZmyEOqZIokmDYuT0' // import content
-const mainPath = 'docs/app/survey/how-to'
 
 let locator: Locator
-const suffix = ``
-let surveyId: string = ''
 
-let formId: string = ''
-let surveyName = 'My New Survey'
+let userId = ''
+let organisationId = ''
 
+const port = process.env.PLAYWRIGHT_PORT || '7173'
+const root = `http://localhost:${port}`
+const howToRoot = 'docs/how-to'
+const newUserEmail = 'playwright-create-account@preignition.org'
 test.describe('How-To', async () => {
-  // try {
   test('Create an account', async ({ page }) => {
+    const context = new Context(`${howToRoot}/create-account`, page)
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
+    await page.getByRole('button', { name: 'app settings' }).click()
+    await page.getByRole('button', { name: 'Sign out' }).click()
+    await pushState(page, 'space/ok/welcome')
+
+    // Step 1: Click on "Create an account" link on the welcome page of the app
+    locator = await page.getByRole('link', { name: 'Start Submitting Commitments' })
+    await context.annotatedScreenshot(locator, 'step-1-start-submitting-commitments')
+    await locator.click()
+    locator = await page.getByRole('link', { name: 'Create an account' })
+    await context.annotatedScreenshot(locator, 'step-1-create-account')
+    await locator.click()
+
+    // Step 2: fill the form with valid data to create a new user 
+    locator = await page.getByRole('textbox', { name: 'e-mail' })
+    await context.annotatedScreenshot(locator, 'step-2-fill-create-account-form-email')
+    await locator.fill(newUserEmail)
+    locator = await page.getByRole('textbox', { name: 'password' })
+    await context.annotatedScreenshot(locator, 'step-2-fill-create-account-form-password')
+    await locator.fill('cmoila2')
+    locator = await page.getByRole('textbox', { name: 'first name' })
+    await context.annotatedScreenshot(locator, 'step-2-fill-create-account-form-first-name')
+    await locator.fill('christophe')
+    locator = await page.getByRole('button', { name: 'Create Account' })
+    await context.annotatedScreenshot(locator, 'step-2-Click Next')
+    await locator.click()
+
+    // Step 3: Set New Organisation Details
+
+    locator = await page.getByRole('button', { name: 'Set details for new' })
+    await context.annotatedScreenshot(locator, 'step-3-set-new-organisation-details')
+    await locator.click()
+
+    locator = await page.getByRole('textbox', { name: 'Name' })
+    await context.annotatedScreenshot(locator, 'step-3-set-new-organisation-details-name')
+    await locator.fill('My Organisation Name')
+    locator = await page.getByRole('combobox', { name: 'Type' })
+    await context.annotatedScreenshot(locator, 'step-3-set-new-organisation-details-type')
+    await locator.press('ArrowDown')
+    await page.getByText('INGO').click()
+    locator = await page.locator('textarea')
+    await context.annotatedScreenshot(locator, 'step-3-set-new-organisation-details-description')
+    await locator.fill('Description of my organisation')
+    locator = await page.getByRole('button', { name: 'Next' })
+    await context.annotatedScreenshot(locator, 'step-3-set-new-organisation-details-next')
+    await locator.click()
+
+
+    // Step 4: Verify your email address : go to your email inbox and click on the verification link 
+    await getAuth().getUserByEmail(newUserEmail)
+      .then((userRecord) => {
+        userId = userRecord.uid
+        console.info('User ID:', userId)
+        return getAuth().updateUser(userId, {
+          emailVerified: true,
+        })
+          .then(() => {
+            console.log('User ID:', userId)
+          })
+      })
+    // Step 5: Agree to terms and conditions
+    locator = await page.getByRole('checkbox', { name: 'Yes, I agree to the terms gds' })
+    await context.annotatedScreenshot(locator, 'step-5-agree-to-terms')
+    await locator.check()
+    await page.getByRole('button', { name: 'Next' }).click()
+
+    // Step 6: You are all set ! Click on "Access GDS Commitment Portal" button and you will be redirected to the welcome page of your space.
+    locator = await page.getByRole('link', { name: 'Access GDS commitments Portal' })
+    await context.annotatedScreenshot(locator, 'step-6-access-commitment-portal')
+    await locator.click()
+
+    // extract organisation id from url
+    const url = page.url()
+    const regex = /space\/([^\/]+)\/ok/
+    const match = url.match(regex)
+    if (match && match[1]) {
+      organisationId = match[1]
+      console.log('Organisation ID:', organisationId)
+    }
+
+    // delete the user and the organisation created during the test to avoid polluting the database
+    if (userId) {
+      await getAuth().deleteUser(userId)
+      await db.collection('user').doc(userId).delete()
+    }
+    if (organisationId) {
+      await db.collection('app/gds/organisations').doc(organisationId).delete()
+    }
 
   })
 
   test('Add a member to your organisation', async ({ page }) => {
+    const context = new Context(`${howToRoot}`, page)
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
   })
 
   test('create a commitment', async ({ page }) => {
+    const context = new Context(`${howToRoot}`, page)
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
   })
 
   test('submit a commitment', async ({ page }) => {
+    const context = new Context(`${howToRoot}`, page)
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
   })
 
   test('start the reporting process', async ({ page }) => {
+    const context = new Context(`${howToRoot}`, page)
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
   })
 
   test('submit a report', async ({ page }) => {
+    const context = new Context(`${howToRoot}`, page)
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
   })
 
 
