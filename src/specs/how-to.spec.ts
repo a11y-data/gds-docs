@@ -294,42 +294,62 @@ test.describe('How-To', async () => {
 
   test('report a progress update', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
-    context.setName('report-progress-update')
+    context.setName('submit-reporting')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
     await page.waitForTimeout(1000)
 
     // Step 1: Click on "My Space" in the header and then on "Reporting" in the left menu
+    await page.getByRole('link', { name: 'My Space' }).click()
+    await page.getByTestId('page-drawer-menu').getByText('Reporting').click()
 
     // Step 2: Click on the report linked to the commitment you want to update
+    locator = await page.getByText('New Commitment Title')
+    await context.annotatedScreenshot(locator, 'step-2-click-commitment')
+    await locator.click()
 
-    // Step 3: Click on "Add Progress Update" button and fill the form with the progress update details (text, images, videos, etc.)
+    locator = await page.getByRole('button', { name: 'Open for Editing' })
+    await context.annotatedScreenshot(locator, 'step-2-click-open')
+    await locator.click()
 
-    // Step 4: Click on "Submit Update" button and see the new progress update appear in the report page with a "In Review" status (waiting for admin validation before being published on the platform)
-
-  })
-
-  test('submit a report', async ({ page }) => {
-    const context = new Context(`${howToRoot}`, page)
-    context.setName('submit-report')
-    await page.setViewportSize({ width: 1600, height: 1080 })
-    await page.goto(`${root}`)
     await page.waitForTimeout(1000)
 
-    // Step 1: Click on "My Space" in the header and then on "Reporting" in the left menu
-
-    // Step 2: Open the report linked to the commitment you want to submit
-
-
     // step 3: Click on "Edit Report" button and review the report details and make sure all required fields are filled in and Save the changes
+    locator = await page.getByRole('button', { name: 'Edit' })
+    await context.annotatedScreenshot(locator, 'step-3-click-edit')
+    await locator.click()
 
     // Step 4: Review the report content and make sure all required fields are filled in and Save the changes
+    locator = await page.getByRole('combobox', { name: 'Please select the reporting' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-4-select-reporting-period')
+    await locator.click()
+    await page.locator('md-select-option:nth-child(3) > #item > md-item').first().click()
 
-    // Step 5: Click on "Submit Report" button - this will trigger an email notification to the admin of the app to review and validate the report before being published on the platform
+    locator = await page.getByRole('combobox', { name: 'How would you describe the' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-4-select-reporting-status')
+    await locator.click()
+    await page.getByText('on track').click()
 
+    // continue editing the report by filling remaining fields and then save the changes
+
+    // Step 5: Save the changes and click on "Submit Report" button to submit the report update. You will see the updated report in the "Reporting" page with a "Pending Validation" status, waiting for the admin of the app to review and validate the update before being published on the platform
+    locator = await page.getByRole('button', { name: 'Save' })
+    await context.annotatedScreenshot(locator, 'step-5-click-save')
+    await locator.click()
+
+    // Step 6: Click on "Submit Report" button - this will trigger an email notification to the admin of the app to review and validate the report before being published on the platform
+    locator = await page.getByRole('button', { name: 'Submit ' })
+    await context.annotatedScreenshot(locator, 'step-6-click-submit-report')
+    // await locator.click()
+
+
+  })
+  test('Clean up', async ({ page }) => {
     // Not for documentation purposes, delete all reports
     await clearReporting(organisationId, reportingId)
   })
+
+
 
 
 })

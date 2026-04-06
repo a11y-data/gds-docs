@@ -8,3 +8,4 @@ How-to guides are goal-oriented, step-by-step instructions designed to help you 
 *   **[How to Create a Commitment](./create-commitment.md):** A walkthrough of the form and process required to submit a new pledge to the Global Disability Summit.
 *   **[How to Submit a Commitment](./submit-commitment.md):** The final steps required to finalize a draft commitment and officially submit it for review.
 *   **[How to Start Reporting](./start-reporting.md):** Instructions on how to initiate the progress reporting exercise for your submitted commitments.
+*   **[How to Submit a Progress Report](./submit-reporting.md):** A walkthrough of filling out and finalizing a progress report for a specific commitment.

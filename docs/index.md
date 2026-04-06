@@ -4,9 +4,16 @@ layout: home
 
 hero:
   name: "GDS Portal"
-  text: "Documentation for the GDS Commitments Portal"
+  text: "Docs for the GDS Commitments Portal"
+  image: "/logo_512.png"
 
 features:
+  - title: Tutorials
+    details: When you are new to the GDS Portal and want to learn by doing
+    icon: 
+      light: /images/icons/tutorial.svg
+      dark: /images/icons/tutorial-dark.svg
+    link: ./tutorial/index
   - title: How-to Guides
     details: When you need practical directions to complete a specific task
     icon: 
@@ -35,12 +42,17 @@ The GDS Portal is the central platform for stakeholders to manage their Global D
 
 To help you find exactly what you need when you need it, our documentation is divided into the following sections:
 
-### 1. [How-to Guides](./how-to/index.md) (Goal-oriented)
+### 1. [Tutorials](./tutorial/index.md) (Learning-oriented)
+
+**Are you new to the GDS Portal and want to learn by doing?**  
+Our tutorials take you by the hand and guide you through a complete learning experience. *(Note: Video tutorials are coming soon!)*
+
+### 2. [How-to Guides](./how-to/index.md) (Goal-oriented)
 
 **Do you need practical directions to complete a specific task?**  
 How-to guides are step-by-step instructions that help you solve real-world problems. If you need to know *"How do I submit a new commitment?"* or *"How do I add a team member?"*, you'll find the answers here.
 
-### 2. [Reference](./reference/index.md) (Information-oriented)
+### 3. [Reference](./reference/index.md) (Information-oriented)
 
 **Do you need technical descriptions, facts, or details while you work?**  
 The Reference section provides austere, descriptive information about the portal's features and interface. It is organized around the main areas of the portal:
@@ -52,6 +64,6 @@ The Reference section provides austere, descriptive information about the portal
 
 ## Getting Started
 
-If you are new to the platform, we recommend starting with the [**Welcome**](./reference/home/index.md) page to understand the overall aim of the GDS initiative and how the portal supports your work.
+If you are new to the platform, we recommend starting with the [**Tutorials**](./tutorial/index.md) page or the [**Welcome**](./reference/home/index.md) page to understand the overall aim of the GDS initiative and how the portal supports your work.
 
 If you are looking for specific instructions or reference material, simply choose the section above that matches what you are trying to do today!

@@ -15,14 +15,14 @@ export default defineConfig({
   cleanUrls: true,
   // lastUpdated: true,
   metaChunk: true,
-  head: [['link', { rel: 'icon', href: '/a14y_logo_style.svg' }]],
+  head: [['link', { rel: 'icon', href: '/icon_64.png' }]],
   srcDir: "docs",
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/a14y_logo_style.svg',
+    logo: '/icon_64.png',
     editLink: {
-      pattern: 'https://github.com/preignition/program-user-guide/edit/main/docs/:path',
+      pattern: 'https://github.com/a11y-data/gds-docs/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
     },
     search: {
@@ -54,5 +54,6 @@ export default defineConfig({
 function getNav() {
   const nav = getRootNav()
   nav.push({ text: 'GDS Portal', link: 'https://gds.idata.tools' })
+  nav.push({ text: 'Official GDS web site', link: 'https://www.globaldisabilitysummit.org/' })
   return nav
 } 
