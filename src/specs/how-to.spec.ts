@@ -117,7 +117,38 @@ test.describe('How-To', async () => {
     context.setName('add-member')
     await page.setViewportSize({ width: 1600, height: 1080 })
     await page.goto(`${root}`)
+    await pushState(page, 'space/ok/team')
     await page.waitForTimeout(1000)
+
+    // Step 1: Click on "My Space" in the header and then on "Team" in the left menu
+    await page.getByText('Team', { exact: true }).click()
+    locator = await page.getByRole('button', { name: 'Add Members' })
+    await context.annotatedScreenshot(locator, 'step-1-click-add-members')
+    await locator.click()
+
+
+    // Step 2: Click on "Add Member" button and fill the form with the email of the new member you want to add to your organisation
+    // fill the exact email address of the user you want to add to your organisation to make sure the user appears in the dropdown list (the user needs to have an account in the app before being added to an organisation)
+    locator = await page.getByRole('combobox', { name: 'Search or Invite Users' }).getByRole('textbox')
+    await context.annotatedScreenshot(locator, 'step-2-search-new-member')
+    await locator.click()
+    await locator.fill('playwright@preignition.org')
+
+    // select the user in the dropdown list
+    locator = await page.getByRole('option').getByText('CG christophe g playwright@')
+    // locator = await page.getByRole('option').getByText('playwright preignition')
+    await context.annotatedScreenshot(locator, 'step-2-select-new-member')
+    await locator.click()
+
+    locator = await page.getByRole('combobox', { name: 'Select Role' }).locator('#label')
+    await context.annotatedScreenshot(locator, 'step-2-select-role')
+    await locator.click()
+    await page.getByText('editor', { exact: true }).click()
+    locator = await page.getByRole('button', { name: 'Add Access' })
+    await context.annotatedScreenshot(locator, 'step-2-click-add-access')
+
+
+
   })
 
   test('create a commitment', async ({ page }) => {
@@ -128,7 +159,7 @@ test.describe('How-To', async () => {
     await page.waitForTimeout(1000)
   })
 
-  test('submit a commitment', async ({ page }) => {
+  test('submit a commitment - coming soon', async ({ page }) => {
     const context = new Context(`${howToRoot}`, page)
     context.setName('submit-commitment')
     await page.setViewportSize({ width: 1600, height: 1080 })
