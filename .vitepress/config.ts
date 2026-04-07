@@ -28,12 +28,15 @@ export default defineConfig({
     search: {
       provider: 'algolia',
       options: {
-        appId: 'YHQBY741RD',
-        indexName: 'a11y-data-doc-crawler',
-        apiKey: '5cc71dd055506e2b975024ace4074cb7',
+        appId: '58I7HKT3AS',
+        indexName: 'gds-docs-crawler',
+        apiKey: 'cd6fa287ce0d5f1d871ac8b357df6e72',
         askAi: {
-          assistantId: 'hMFvvrrSqi93',
-          sidePanel: true
+          indexName: 'markdown-index', // an index specifically for AI search, which includes the full content of the markdown files
+          assistantId: '1a0bd94f-5368-4d53-bfe0-7fa609b232d0',
+          sidePanel: true,
+          suggestedQuestions: true,
+          agentStudio: true // this is not passed to algolia - https://github.com/vuejs/vitepress/issues/5168
         }
       }
     },

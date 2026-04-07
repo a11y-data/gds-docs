@@ -11,7 +11,6 @@ export async function pushState(page: Page, path: string) {
   await page.evaluate((path) => {
     const url = new URL(path, window.location.href).href
     window.history.pushState({}, '', url)
-
   }, path)
 }
 
