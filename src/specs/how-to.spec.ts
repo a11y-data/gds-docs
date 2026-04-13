@@ -31,7 +31,7 @@ test.describe('How-To', async () => {
     await pushState(page, 'space/ok/welcome')
 
     // Step 1: Click on "Create an account" link on the welcome page of the app
-    locator = await page.getByRole('link', { name: 'Start Submitting Commitments' })
+    locator = await page.getByRole('link', { name: 'Create and Account' })
     await context.annotatedScreenshot(locator, 'step-1-start-submitting-commitments')
     await locator.click()
     locator = await page.getByRole('link', { name: 'Create an account' })

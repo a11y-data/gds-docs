@@ -15,11 +15,15 @@ Once you have initiated the reporting process and opened a draft report for a sp
 
 Provide the requested information regarding the progress of your commitment.
 
-1.  **Reporting Period:** If applicable, select the specific reporting year this update covers from the dropdown menu. *(Note: For multi-year commitments, separate updates are required for each year)*.
+1. **Reporting Period:** If applicable, select the specific reporting year this update covers from the dropdown menu. *(Note: For multi-year commitments, separate updates are required for each year)*.
     ![Select Reporting Period](./assets/submit-reporting/step-4-select-reporting-period.png)
-2.  **Commitment Status:** Choose an option from the dropdown menu that best describes the current status of your commitment (e.g., On Track, Completed, Delayed).
+2. **Commitment Status:** Choose an option from the dropdown menu that best describes the current status of your commitment (e.g., On Track, Completed, Delayed).
     ![Select Status](./assets/submit-reporting/step-4-select-reporting-status.png)
-3.  *(Fill in any other required textual fields detailing your progress, challenges, and successes)*.
+3. *(Fill in any other required textual fields detailing your progress, challenges, and successes)*.
+
+> [!TIP]
+> For **reporting on joint commitments**, it is possible to share the draft report with collaborators from other organizations to facilitate joint reporting. To do this, click the "See Partners User" button to check who can access the report. A link to share the report with collaborators is available in the "See Partners User" dialog.
+> ![joint commitment - sharing with partners](assets/submit-reporting/tip-joint.png)
 
 ## Step 3: Save and Submit
 
