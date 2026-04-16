@@ -9,7 +9,7 @@ import { getSocialLinks } from './getSocialLinks.ts'
 export default defineConfig({
   title: "GDS Portal Docs",
 
-  description: "Documentation for GDS documentation applications ",
+  description: "User Guidance for the GDS Portal",
   // assetsDir: 'assets',
   srcExclude: ['**/README.md', '**/TODO.md'],
   cleanUrls: true,
