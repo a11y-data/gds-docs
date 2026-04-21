@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "GDS Portal User guide"
-  text: "for commitments and reporting"
+  text: "For Commitments and Reporting"
   image: "/logo_512.png"
 
 features:
