@@ -7,9 +7,9 @@ import { getSocialLinks } from './getSocialLinks.ts'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "GDS Portal Docs",
+  title: "GDS Portal User guide",
 
-  description: "User Guidance for the GDS Portal",
+  description: "for commitments and reporting",
   // assetsDir: 'assets',
   srcExclude: ['**/README.md', '**/TODO.md'],
   cleanUrls: true,

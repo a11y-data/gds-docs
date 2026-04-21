@@ -3,8 +3,8 @@ description: Welcome to the GDS Portal User Guide. This guide covers everything 
 layout: home
 
 hero:
-  name: "GDS Portal"
-  text: "Docs for the GDS Commitments Portal"
+  name: "GDS Portal User guide"
+  text: "for commitments and reporting"
   image: "/logo_512.png"
 
 features:
