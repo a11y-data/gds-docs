@@ -25,7 +25,7 @@ Before submitting, ensure all information is accurate and complete.
 ## Step 3: Submit for Review
 
 1. After saving, the commitment is ready for final submission.
-2. Click the **Submit** button. 
+2. Click the **Submit** button.
    ![Submit Commitment](./assets/submit-commitment/step-3-click-submit.png)
 
 Your commitment has now been officially submitted. The status in your commitments list will update to reflect that it is under review by the GDS team.

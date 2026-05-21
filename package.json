@@ -4,7 +4,7 @@
   "description": "documentation for the GDS portal",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev",
+    "docs:start": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
     "docs:deploy": "pnpm docs:build && firebase deploy --only hosting:gds-docs-2a8b5",

@@ -22,6 +22,7 @@ You must associate your account with an organization.
 ### Option A: Request Access to an Existing Organisation
 
 If your organization is already registered:
+
 1. Search for your organization in the provided list and select it.
 2. Choose your requested **Role** (e.g., Owner, Editor).
 3. Provide a reason for requesting access and click **Next**. The current owner will review your request.
@@ -32,6 +33,7 @@ If your organization is already registered:
 ### Option B: Set Details for a New Organisation
 
 If your organization is new to the portal:
+
 1. Select **Set details for new organisation**.
 2. Fill out the form with your organization's name, type, and description.
 3. Click **Next**.
@@ -41,6 +43,7 @@ If your organization is new to the portal:
 ## Step 4: Verify Your Email
 
 For security, you must verify your email address.
+
 1. Check your email inbox for a verification link and click it.
 2. Return to the portal. Once verified, you will see a success message on the Verification step.
 3. Click **Next**.
@@ -57,7 +60,8 @@ For security, you must verify your email address.
 
 ## Step 6: Success
 
-Your account completion is now finished. 
+Your account completion is now finished.
+
 * If you joined an existing organization, you must wait for approval.
 * Otherwise, click **Access GDS commitments Portal** to enter your workspace.
 

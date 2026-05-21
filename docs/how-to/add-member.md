@@ -19,7 +19,7 @@ If you are the Owner of your organisation on the GDS Commitments Portal, you can
 
 ![Search for New Member](./assets/add-member/step-2-search-new-member.png)
 
-2. If the user already has an account on the portal, their profile will appear in the dropdown list. Click on their name to select them. If they do not have an account, you can still enter their email address to send an invitation.
+1. If the user already has an account on the portal, their profile will appear in the dropdown list. Click on their name to select them. If they do not have an account, you can still enter their email address to send an invitation.
 
 ![Select New Member](./assets/add-member/step-2-select-new-member.png)
 
