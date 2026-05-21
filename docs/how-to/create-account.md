@@ -1,5 +1,7 @@
 # How to Create an Account
 
+YouTube video tutorial [here](https://youtu.be/ty1FK62Bu5Q)
+
 To submit commitments or report on past pledges, you first need to register and create an account on the GDS Commitments Portal.
 
 ## Step 1: Start Registration
