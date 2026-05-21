@@ -1,6 +1,6 @@
 # How to Submit a Commitment
 
-After you have created a draft commitment, you must officially submit it to the GDS secretariat for review. This guide outlines the final steps to finalize and submit your pledge.
+After you have created a draft commitment in the portal, you must officially submit it to the GDS secretariat for review. This guide outlines the final steps to finalize and submit your pledge.
 
 ## Step 1: Open Your Commitment
 
