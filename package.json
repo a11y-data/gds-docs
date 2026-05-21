@@ -7,9 +7,9 @@
     "docs:start": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "docs:deploy": "pnpm docs:build && firebase deploy --only hosting:gds-docs-2a8b5",
-    "docs:check": "markdownlint-cli2 docs/**/*.md \"#node_modules\"",
-    "docs:fix": "markdownlint-cli2 docs/**/*.md --fix \"#node_modules\"",
+    "docs:deploy": "pnpm docs:fix && pnpm docs:check &&pnpm docs:build && firebase deploy --only hosting:gds-docs-2a8b5",
+    "docs:check": "markdownlint-cli2 \"docs/**/*.md\" \"#node_modules\"",
+    "docs:fix": "markdownlint-cli2 \"docs/**/*.md\" --fix \"#node_modules\"",
     "test": "playwright test"
   },
   "keywords": [],
