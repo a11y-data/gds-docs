@@ -1,0 +1,13 @@
+diff --git a/dist/client/theme-default/components/VPAlgoliaSearchBox.vue b/dist/client/theme-default/components/VPAlgoliaSearchBox.vue
+index 26df2b7c0aac9e1883609bb2a03852bc7b9711cc..46677fcd8b22d0527ea6338906e25d0aaf7f1bc7 100644
+--- a/dist/client/theme-default/components/VPAlgoliaSearchBox.vue
++++ b/dist/client/theme-default/components/VPAlgoliaSearchBox.vue
+@@ -107,6 +107,8 @@ async function initialize(userOptions: DefaultTheme.AlgoliaSearchOptions) {
+     sidepanelInstance = sidepanel({
+       ...(askAi.sidePanel === true ? {} : askAi.sidePanel),
+       container: '#vp-docsearch-sidepanel',
++      agentStudio: true,
++      suggestQuestions: true, 
+       indexName: askAi.indexName ?? userOptions.indexName,
+       appId: askAi.appId ?? userOptions.appId,
+       apiKey: askAi.apiKey ?? userOptions.apiKey,
