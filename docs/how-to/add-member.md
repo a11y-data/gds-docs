@@ -2,6 +2,10 @@
 
 If you are the Owner of your organisation on the GDS Commitments Portal, you can invite new members to join your team and assign them specific roles.
 
+If you prefer, you can watch a YouTube video tutorial:
+
+<lite-youtube videoid="WCFT7Ivkf6g" title="How to Add a Member to your Organisation" ></lite-youtube>
+
 ## Step 1: Access the Team Page
 
 1. Log in to the GDS Commitments Portal and navigate to your **My Space** dashboard.
