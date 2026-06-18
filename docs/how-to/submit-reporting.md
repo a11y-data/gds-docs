@@ -2,6 +2,10 @@
 
 Once you have initiated the reporting process and opened a draft report for a specific commitment, you need to fill out the required details and submit it. This guide outlines those steps.
 
+If you prefer, you can watch a YouTube video tutorial:
+
+<lite-youtube videoid="XK64MjjnBDY" title="How to submit a progress report" ></lite-youtube>
+
 ## Step 1: Open the Report for Editing
 
 1. In the "Your Reports" grid, click on the row corresponding to the commitment you want to report on.
