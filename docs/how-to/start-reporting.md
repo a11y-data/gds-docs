@@ -2,6 +2,10 @@
 
 During active reporting periods, you will be invited to report on the progress of the commitments your organization has submitted. This guide shows you how to initiate that process.
 
+If you prefer, you can watch a YouTube video tutorial:
+
+<lite-youtube videoid="jX3lEuFgmsw" title="How to start reporting" ></lite-youtube>
+
 ## Step 1: Access the Reporting Section
 
 1. Log in to the GDS Commitments Portal and go to your **My Space** dashboard.
