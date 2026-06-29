@@ -343,6 +343,41 @@ test.describe('How-To', async () => {
 
 
   })
+
+  test('Access and Download Commitments from the GDS Commitments Portal', async ({ page }) => {
+    const context = new Context(`${howToRoot}`, page)
+    context.setName('commitments-portal')
+    await page.setViewportSize({ width: 1600, height: 1080 })
+    await page.goto(`${root}`)
+    await page.waitForTimeout(1000)
+
+    // Step 1: go to the GDS commitment portal
+    locator = await page.getByRole('link', { name: 'Overview' })
+    await context.annotatedScreenshot(locator, 'step-1-click-overview')
+    await locator.click()
+
+    await page.waitForTimeout(10_000) // wait for the page to load and the commitments to be displayed
+
+    // Step 2a: explore by chart
+    // charts are interactive and you can click on the chart element to filter the commitments displayed in the table below the charts
+    locator = page.locator('div').filter({ hasText: 'Number of Pledges Counter' })
+    await context.annotatedScreenshot(locator, 'step-2a-explore-by-chart')
+
+
+    // Step 2b: explore by table
+    // filter commitments by using the filters above the table and click on the "Download" button to download the filtered commitments in a CSV file
+    locator = page.getByText('List of Commitments Click on')
+    await context.annotatedScreenshot(locator, 'step-2b-explore-by-table')
+
+
+    // Step 3: click on a row to see commitment details
+
+    // Step 3: export data
+    locator = await page.getByRole('button', { name: 'Export' })
+    await context.annotatedScreenshot(locator, 'step-3-click-export')
+
+  })
+
   test('Clean up', async ({ page }) => {
     // Not for documentation purposes, delete all reports
     await clearReporting(organisationId, reportingId)
