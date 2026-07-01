@@ -26,6 +26,13 @@ features:
       light: /images/icons/contract.svg
       dark: /images/icons/contract-dark.svg
     link: ./reference/index
+  - title: API
+    details: Explore the API documentation, including endpoints, parameters, and response formats
+    icon: 
+      light: /images/icons/api.svg
+      dark: /images/icons/api-dark.svg
+    link: http://gds-docs.idata.tool/api.html
+    
 ---
 
 <!-- markdownlint-disable-next-line  -->
