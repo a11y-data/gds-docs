@@ -6,6 +6,10 @@ description: Learn how to access, explore, filter, and download GDS commitments 
 
 The **GDS Commitments Portal** allows users to explore, filter, and download commitments submitted across all Global Disability Summit (GDS) events, including GDS 2018, GDS 2022, and GDS 2025.
 
+If you prefer, you can watch a YouTube video tutorial:
+
+<lite-youtube videoid="twhltUxFSz0" title="How to access and download commitments on the portal" ></lite-youtube>
+
 You can access this information directly from the portal without signing up or logging in.
 
 > [!TIP]
