@@ -74,3 +74,9 @@ The Reference section provides austere, descriptive information about the portal
 If you are new to the platform, we recommend starting with the [**Tutorials**](./tutorial/index.md) page or the [**Welcome**](./reference/home/index.md) page to understand the overall aim of the GDS initiative and how the portal supports your work.
 
 If you are looking for specific instructions or reference material, simply choose the section above that matches what you are trying to do today!
+
+---
+
+## Release Notes
+
+Release notes for the GDS Portal are available in the [Release Notes](./releasenotes/index.md) section. This section provides information about new features, improvements, and bug fixes in each release of the portal.

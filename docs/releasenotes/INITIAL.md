@@ -63,7 +63,7 @@ The app is structured as follows:
   - [**Guidance**](/settings/guidance): Guidance notes for the GDS Application
   - [**Release Notes**](/settings/release): Release notes for the GDS Application - this document
   - [**API Docs**](/docs): link to the API documentation
- - **Interactive Guide**: an interactive guide to help users navigate through the app. The guide can be activated by hitting the `F1` key or clicking on the `help` icon top-right. 
+- **Interactive Guide**: an interactive guide to help users navigate through the app. The guide can be activated by hitting the `F1` key or clicking on the `help` icon top-right.
 
 ### Structure of this document
 
@@ -589,4 +589,4 @@ The guide includes a series of steps to help users navigate through the app. Eac
 
 > ![Interactive Guide step](./images/guide-example.png)
 >
-> Screenshot of a step in the interactive guide. 
+> Screenshot of a step in the interactive guide.

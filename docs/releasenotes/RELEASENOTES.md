@@ -1,6 +1,63 @@
 # Release Notes
 
-## 1.3.0 [unreleased]
+## 1.3.1 [2026-07-02]
+
+### Feature
+
+### All Reports View for Administrators
+
+Admins and monitoring teams now have access to a comprehensive management grid that aggregates all progress reports across various organisations, reporting exercises, and summits. This makes tracking, validating, and searching reports extremely seamless.
+
+The new view is accessible via a dedicated menu item in the navigation panel, which also features a notification badge indicating active reports in progress.
+
+Key highlights of the new view include:
+
+- **Comprehensive Filtering**: Real-time filters for Organisation, Acronym, Commitment title, Reported Progress, Summit, Status, and State.
+- **Workflow State Tracking**: Instantly view whether a report is in `draft` or `submitted` state, and its progress status (e.g., `completed`, `Mostly completed`, `Significant progress`, `Early stages`).
+- **Inline Details & Direct Editing**: Expand any report row to view the full progress narrative on the spot. A quick-action button allows admins to open any specific report directly for editing or validation.
+- **Deleted Reports Toggle**: Toggle the visibility of deleted reports via the `View Deleted Reports` switch to audit or clean up submissions.
+- **Data Exporting**: Download the filtered dataset instantly in CSV format using the `Export` button.
+
+> ![all reports screenshot](images/1.3.1/all-reports.png)
+>
+> Screenshot of the "All Reports" admin/monitoring grid, showing real-time filters, expanded progress details, and workflow status.
+>
+> ![all reports menu screenshot](images/1.3.1/reports-menu.png)
+>
+> Screenshot of the navigation panel showing the "Report" menu with a notification badge and active/pinned report tabs under the new "All Reports" submenu.
+
+### Schema-First Effect API and Scalar Documentation
+
+The GDS backend API has undergone a major modernization, migrating from TSOA to a highly robust, schema-first **Effect API**. This alignment with the rest of the monorepo architecture enhances type-safety, improves validation error handling, and significantly boosts response performance.
+
+Additionally, we have upgraded our API documentation suite:
+
+- **Interactive API Documentation**: Replaced RapiDoc with **Scalar** to deliver a more modern, responsive, and developer-friendly documentation interface.
+- **Automated OpenAPI Specifications**: The deploy process now automatically compiles and hosts separate unified (`openapi.json`) and GDS-specific (`openapi-gds.json`) OpenAPI specifications, enabling external partners and internal developers to integrate easily.
+- **Enhanced Endpoint Filters**: Core endpoints like `getReports` now fully support rich filtering parameters, including status and deletion state, powering the new frontend administrative features.
+
+New documentation is available at [https://gds-docs.idata.tools/api.html](https://gds-docs.idata.tools/api.html).
+
+### Fixes
+
+### Accessible Progress Report Attachment Handling
+
+We have improved the visibility and handling of files uploaded with progress reports. Admins and users can now easily verify and access supporting documents associated with any commitment report.
+
+- **Bullet List Format**: Attachments are formatted as a clear, structured list displaying the exact filename.
+- **Non-Latin Character Support**: Fully supports files with non-Latin filenames (e.g., Arabic, Cyrillic, etc.) without corruption.
+- **Instant Previews**: Each file includes an external link icon to download or preview the file directly from the report summary.
+- **Empty State Indicator**: Displays a clean `"No attachment"` message (spelled as `"No attachement"` in the UI) when no files are uploaded, avoiding layout empty spaces.
+
+> ![no attachments screenshot](images/1.3.1/no-attachments.png)
+>
+> Screenshot displaying the clean empty state message when a progress report has no uploaded attachments.
+>
+> ![with attachments screenshot](images/1.3.1/with-attachements.png)
+>
+> Screenshot showing the list of uploaded attachments with support for multi-language filenames and external link icons for quick access.
+
+## 1.3.0 [2026-06-10]
 
 ### Feature
 
@@ -440,7 +497,7 @@ The owner of the review process can now select reviewers for each commitments be
 > ![alt text](images/selectReviewNoReviewer.png)
 >
 > screenshot of the review process without reviewer selected. `Start review` button is disabled.
-
+>
 > ![alt text](images/selectReviewerWithReviewer.png)
 >
 > screenshot of the review process with reviewer selected. `Start review` button is enabled.
