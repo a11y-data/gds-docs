@@ -31,9 +31,9 @@ features:
     icon: 
       light: /images/icons/api.svg
       dark: /images/icons/api-dark.svg
-    link: http://gds-docs.idata.tool/api.html
+    link: http://gds-docs.idata.tools/api.html
     
----
+--- 
 
 <!-- markdownlint-disable-next-line  -->
 <br>

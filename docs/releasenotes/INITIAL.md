@@ -26,43 +26,43 @@ Overall Performance and conformance to standards and best practices are monitore
 
 The app is structured as follows:
 
-- [**Home Page**](/home): A landing page that introduces the GDS Portal, its purpose, and the GDS initiative, with links guiding users to the different sections of the app.
-  - [**FAQ**](/home/faq): A section that provides answers to frequently asked questions about the GDS Portal and the GDS initiative.
-  - [**Guidance**](/home/guidance): Guidance on how to commit quality pledges.  
-  - [**Terms and Privacy**](/home/terms): The terms and conditions that users agree to when using the GDS Portal
-  - [**Accessibility Statement**](/home/a11y): The accessibility statement for the GDS Portal
-- [**API Docs**](/docs): A page that provides information about the API used by the GDS Portal
-- [**Login**](/login): a page for logging in to the GDS Portal
-- [**Overview**](/overview):  Overview of the commitments, with a search and filter feature. This page is public and accessible to anyone - deployed the previous version of similar page - yet to be developed
-- [**Discussion**](/discussion): a forum where pledging bodies can discuss, ask questions, and look for collaboration
-- [**My Space**](/space): main entry-point for pledging bodies
-  - [**Welcome**](/space/welcome): a welcome page for pledging bodies,
-  - [**Discover**](/space/discover): a page for discovering pledges looking for partners and collaborators
-  - [**Commitments**](/space/commitment): a page for managing user commitments and making new ones
-  - [**Reporting**](/space/report): a page for reporting on the progress of commitments
-  - [**Messages**](/space/messages): a page for managing communication with the GDS secretariat
-  - [**Organization**](/space/organization): a page for managing the organization's profile
-  - [**Team**](/space/team): a page adding removing and managing team members
-  - [**User Profile**](/space/profile): a page for managing user profile - yet to add
-- [**Admin**](/admin): a page for managing the GDS Portal only available to authorized users (GDC secretariat and co-hosts), including user management, content moderation, and analytics
-  - [**Welcome**](/admin/welcome): a welcome page for the admin section
-  - [**Commitments**](/admin/commitment): a page for managing commitments, including reviewing and approving commitments
-  - [**Reports**](/admin/report): a page for managing reports, including reviewing and approving reports
-  - [**Organizations**](/admin/organization): a page for managing organizations (organization profiles, contacts, etc.)
-  - [**My Tasks**](/admin/task): a page for managing tasks assigned to co-hosts, for instance reviewing commitments and reports when they are submitted
-- [**App Settings**](/settings): a page for managing the all GDS settings
-  - [**Welcome**](/settings/welcome): a welcome page for the app settings section
-  - [**User Management**](/settings/user): a page for managing users, including inviting users to join the GDS Portal and managing user roles and permissions, or assign ownership for teh main app.
-  - [**Request Access**](/settings/request): a page for overseeing requests for access to the GDS Portal (for instance, when a user requests access to an organization)
-  - [**Active Settings**](/settings/settings): a page for opening or closing pledging or reporting periods.
-  - [**Summits**](/settings/summit): a page for managing GDS summits, including setting the date, location, and marking the last summit as the active one
-  - [**Reporting**](/settings/reporting): a page for managing reporting periods, including  adding new reporting periods or marking the active reporting period
-  - [**Mail Templates**](/settings/template): a page for managing email templates, including mails with call to action.
-  - [**Labels**](/settings/label): a page for managing labels, including adding new labels or editing existing ones. Labels are used to categorize commitments or organisations reports.
-  - [**Reviewing**](/settings/reviewing): a page for managing user allowed to review commitments and reports
-  - [**Guidance**](/settings/guidance): Guidance notes for the GDS Application
-  - [**Release Notes**](/settings/release): Release notes for the GDS Application - this document
-  - [**API Docs**](/docs): link to the API documentation
+- [**Home Page**](https://gds.idata.tools/home): A landing page that introduces the GDS Portal, its purpose, and the GDS initiative, with links guiding users to the different sections of the app.
+  - [**FAQ**](https://gds.idata.tools/home/faq): A section that provides answers to frequently asked questions about the GDS Portal and the GDS initiative.
+  - [**Guidance**](https://gds.idata.tools/home/guidance): Guidance on how to commit quality pledges.  
+  - [**Terms and Privacy**](https://gds.idata.tools/home/terms): The terms and conditions that users agree to when using the GDS Portal
+  - [**Accessibility Statement**](https://gds.idata.tools/home/a11y): The accessibility statement for the GDS Portal
+- [**API Docs**](https://gds.idata.tools/docs): A page that provides information about the API used by the GDS Portal
+- [**Login**](https://gds.idata.tools/login): a page for logging in to the GDS Portal
+- [**Overview**](https://gds.idata.tools/overview):  Overview of the commitments, with a search and filter feature. This page is public and accessible to anyone - deployed the previous version of similar page - yet to be developed
+- [**Discussion**](https://gds.idata.tools/discussion): a forum where pledging bodies can discuss, ask questions, and look for collaboration
+- [**My Space**](https://gds.idata.tools/space): main entry-point for pledging bodies
+  - [**Welcome**](https://gds.idata.tools/space/welcome): a welcome page for pledging bodies,
+  - [**Discover**](https://gds.idata.tools/space/discover): a page for discovering pledges looking for partners and collaborators
+  - [**Commitments**](https://gds.idata.tools/space/commitment): a page for managing user commitments and making new ones
+  - [**Reporting**](https://gds.idata.tools/space/report): a page for reporting on the progress of commitments
+  - [**Messages**](https://gds.idata.tools/space/messages): a page for managing communication with the GDS secretariat
+  - [**Organization**](https://gds.idata.tools/space/organization): a page for managing the organization's profile
+  - [**Team**](https://gds.idata.tools/space/team): a page adding removing and managing team members
+  - [**User Profile**](https://gds.idata.tools/space/profile): a page for managing user profile - yet to add
+- [**Admin**](https://gds.idata.tools/admin): a page for managing the GDS Portal only available to authorized users (GDC secretariat and co-hosts), including user management, content moderation, and analytics
+  - [**Welcome**](https://gds.idata.tools/admin/welcome): a welcome page for the admin section
+  - [**Commitments**](https://gds.idata.tools/admin/commitment): a page for managing commitments, including reviewing and approving commitments
+  - [**Reports**](https://gds.idata.tools/admin/report): a page for managing reports, including reviewing and approving reports
+  - [**Organizations**](https://gds.idata.tools/admin/organization): a page for managing organizations (organization profiles, contacts, etc.)
+  - [**My Tasks**](https://gds.idata.tools/admin/task): a page for managing tasks assigned to co-hosts, for instance reviewing commitments and reports when they are submitted
+- [**App Settings**](https://gds.idata.tools/settings): a page for managing the all GDS settings
+  - [**Welcome**](https://gds.idata.tools/settings/welcome): a welcome page for the app settings section
+  - [**User Management**](https://gds.idata.tools/settings/user): a page for managing users, including inviting users to join the GDS Portal and managing user roles and permissions, or assign ownership for teh main app.
+  - [**Request Access**](https://gds.idata.tools/settings/request): a page for overseeing requests for access to the GDS Portal (for instance, when a user requests access to an organization)
+  - [**Active Settings**](https://gds.idata.tools/settings/settings): a page for opening or closing pledging or reporting periods.
+  - [**Summits**](https://gds.idata.tools/settings/summit): a page for managing GDS summits, including setting the date, location, and marking the last summit as the active one
+  - [**Reporting**](https://gds.idata.tools/settings/reporting): a page for managing reporting periods, including  adding new reporting periods or marking the active reporting period
+  - [**Mail Templates**](https://gds.idata.tools/settings/template): a page for managing email templates, including mails with call to action.
+  - [**Labels**](https://gds.idata.tools/settings/label): a page for managing labels, including adding new labels or editing existing ones. Labels are used to categorize commitments or organisations reports.
+  - [**Reviewing**](https://gds.idata.tools/settings/reviewing): a page for managing user allowed to review commitments and reports
+  - [**Guidance**](https://gds.idata.tools/settings/guidance): Guidance notes for the GDS Application
+  - [**Release Notes**](https://gds.idata.tools/settings/release): Release notes for the GDS Application - this document
+  - [**API Docs**](https://gds.idata.tools/docs): link to the API documentation
 - **Interactive Guide**: an interactive guide to help users navigate through the app. The guide can be activated by hitting the `F1` key or clicking on the `help` icon top-right.
 
 ### Structure of this document
@@ -88,7 +88,7 @@ Processes can be simulated, tested, and visualized in this release notes. The ex
 >
 > State chart for a very simple process (traffic light). The process can be simulated, with the different states and transitions being highlighted as the process is played.
 
-## [API docs](/docs)
+## [API docs](https://gds.idata.tools/docs)
 
 The API docs page provides information about the API used by the GDS Portal. The page includes a list of endpoints, with descriptions of each endpoint, the parameters required, and the responses returned.
 
@@ -98,7 +98,7 @@ The API can be tested directly from the API docs page. Users can enter the requi
 >
 > Screenshot of the API docs page, with a list of endpoints and descriptions of each endpoint.
 
-## [Home Page](/home)
+## [Home Page](https://gds.idata.tools/home)
 
 This page is available to anyone. It introduces the GDS Portal, its purpose, and the GDS initiative. The page includes links to the different sections of the app, including the FAQ, guidance, terms and privacy, and accessibility statement.
 
@@ -112,7 +112,7 @@ When relevant, the app includes a footer with main links, and partners.
 >
 > Footer, visible of home page and sub-pages
 
-## [Login Page](/login)
+## [Login Page](https://gds.idata.tools/login)
 
 The login page is where users can sign in to the GDS Portal. Users can enter their email address and password to log in. Users can also create an account if they do not have one.
 
@@ -122,13 +122,13 @@ The login page is where users can sign in to the GDS Portal. Users can enter the
 
 When users attempt to access restricted areas of the app, they are guided through an [onboarding process](#onboarding) to make sure only authorized users are accessing the app.
 
-## [Overview Page](/overview)
+## [Overview Page](https://gds.idata.tools/overview)
 
 This page is a public page (available to anyone) that provides an overview of the commitments, with a search and filter feature.
 
 Yet to finalize. For the moment, the page is a copy of the previous version of the app.
 
-## [Discussion Forum](/discussion/)
+## [Discussion Forum](https://gds.idata.tools/discussion/)
 
 The discussion forum is only available to pledging bodies and GDS co-hosts. It is a place where pledging bodies can discuss, ask questions, and look for collaboration.
 
@@ -140,7 +140,7 @@ This part of the app deserves its own release note. [See the release note for th
 >
 > Screenshot of the discussion forum
 
-## [My Space](/space)
+## [My Space](https://gds.idata.tools/space)
 
 My Space is the main entry-point for pledging bodies. It includes several sections: Welcome, Discover, Commitments, Reporting, Messages, Organization, Team and User Profile.
 
@@ -334,7 +334,6 @@ Users can print their commitments by clicking on the `Print` button. The commitm
 > ![Print button](./images/my-space-print.png)
 >
 > Screenshot of the print button on the commitment page. Clicking on the button opens a print-friendly version of the commitment.
-
 > ![Print view](./images/my-space-printing.png)
 >
 > Screenshot of the print view of a commitment. The commitment is displayed in a print-friendly format, with the option to print or save the commitment as a PDF.
@@ -390,7 +389,7 @@ The process works as follows:
 - **Step 5**: WHen the user is signed-in he/she can accept or decline the invitation. Accepting the invitation will add the user to the organisation with the appropriate permissions.
   > <img src="./images/invite-5.png" alt="accept or reject the invite" width="500"/>
 
-## [Admin](/admin)
+## [Admin](https://gds.idata.tools/admin)
 
 The admin section is only available to authorized users (GDS secretariat and co-hosts). It is though to ease the management of commitments, commitment reviews, reports and organisations.
 
@@ -457,7 +456,7 @@ Tasks are automatically assigned to co-hosts when depending on the role of the c
 >
 > Screenshot of the My Tasks page, with a list of tasks assigned to the co-host. Task owner can view, reply to, and delete tasks. Viewing the task will open the relevant commitment or report for review.
 
-## [App Settings](/settings)
+## [App Settings](https://gds.idata.tools/settings)
 
 The App Settings section is only available to authorized users (GDS secretariat can edit, co-hosts can view). It is a place where the GDS settings can be managed.
 
@@ -567,7 +566,7 @@ Link to guidance notes for the GDS Application.
 
 ### API Docs
 
-[Link to the API documentation](/doc)
+[Link to the API documentation](https://gds.idata.tools/doc)
 
 ## Interactive Guide
 

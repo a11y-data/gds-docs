@@ -10,10 +10,12 @@ Admins and monitoring teams now have access to a comprehensive management grid t
 
 The new view is accessible via a dedicated menu item in the navigation panel, which also features a notification badge indicating active reports in progress.
 
+In contrast with the `Reporting` view, focusing on monitoring the reporting process for all organisation, this view focuses on the reports themselves, allowing to see all reports for all organisations, and to filter them by various criteria.
+
 Key highlights of the new view include:
 
 - **Comprehensive Filtering**: Real-time filters for Organisation, Acronym, Commitment title, Reported Progress, Summit, Status, and State.
-- **Workflow State Tracking**: Instantly view whether a report is in `draft` or `submitted` state, and its progress status (e.g., `completed`, `Mostly completed`, `Significant progress`, `Early stages`).
+- **Workflow State Tracking**: Instantly view whether a report is in `draft` or `submitted` state, and its progress status (e.g., `completed`, `Mostly completed`, `Significant progress`, `Early stages`, ...).
 - **Inline Details & Direct Editing**: Expand any report row to view the full progress narrative on the spot. A quick-action button allows admins to open any specific report directly for editing or validation.
 - **Deleted Reports Toggle**: Toggle the visibility of deleted reports via the `View Deleted Reports` switch to audit or clean up submissions.
 - **Data Exporting**: Download the filtered dataset instantly in CSV format using the `Export` button.
@@ -25,6 +27,8 @@ Key highlights of the new view include:
 > ![all reports menu screenshot](images/1.3.1/reports-menu.png)
 >
 > Screenshot of the navigation panel showing the "Report" menu with a notification badge and active/pinned report tabs under the new "All Reports" submenu.
+
+Clicking on a grid row will expand the row to show the progress report narrative, and a button to open the report in a new page for detailed viewing.
 
 ### Schema-First Effect API and Scalar Documentation
 
